@@ -9,8 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ExceptionDTO {
-	
+public class ExceptionResponseDTO {
+
 	private int status;
 	private List<String> menssage;
 

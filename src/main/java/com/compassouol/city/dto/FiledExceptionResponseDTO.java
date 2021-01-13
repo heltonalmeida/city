@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class FiledExceptionDTO {
+public class FiledExceptionResponseDTO {
 	
 	private int status;
 	private List<FieldErrorDTO> erros;
