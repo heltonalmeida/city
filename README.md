@@ -44,6 +44,10 @@ Quanto a configuração das credencias para acesso ao banco, no arquivo applicat
 
 Na primeira vez que estiver executando o projeto, através do Flaway sera executado no banco os scripts contidos no caminho src\main\resources\db para criação de tabela e massa de dados. Para que isso aconteça é necessário já ter criado o database tb_city.
 
+- Configurando Lombok
+
+Além da dependência contida no projeto, é necessário uma [Configuração](https://projectlombok.org/setup/overview) adicional na sua respectiva IDE.
+
 ## Para apreciação
 
 - Swagger 
