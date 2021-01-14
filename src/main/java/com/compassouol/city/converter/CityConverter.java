@@ -4,11 +4,11 @@ import com.compassouol.city.dto.CityRequestDTO;
 import com.compassouol.city.dto.CityResponseDTO;
 import com.compassouol.city.model.City;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CityConverter {
-	
-	private CityConverter() {
-		
-	}
 	
 	public static City convert(CityRequestDTO cityRequestDTO) {
 		return City.builder().name(cityRequestDTO.getName()).state(cityRequestDTO.getState()).build();

@@ -6,55 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Realiza a inserção de uma cidade",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Cabo Frio\",\r\n    \"state\": \"RJ\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:5000/api/city",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"city"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Recupera cidade pelo campo Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:5000/api/city/1",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"city",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Recupera cidade polos campos nome ou estado",
+			"name": "Recupera as informações da(s) cidades(s).",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -77,6 +29,54 @@
 							"key": "state",
 							"value": ""
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realiza a consulta de uma cidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/city/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"city",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realiza a inserção de uma cidade",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Cabo Frio\",\r\n    \"state\": \"RJ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/city",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"city"
 					]
 				}
 			},
