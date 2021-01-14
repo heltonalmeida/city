@@ -23,7 +23,6 @@ import com.compassouol.city.dto.ExceptionResponseDTO;
 import com.compassouol.city.dto.FieldErrorDTO;
 import com.compassouol.city.dto.FiledExceptionResponseDTO;
 import com.compassouol.city.exception.GenericException;
-import com.compassouol.city.exception.ValidationException;
 
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
@@ -37,14 +36,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		List<FieldErrorDTO> erros = getMessagesOfField(ex);
 		FiledExceptionResponseDTO fieldExceptionResponseDTO = new FiledExceptionResponseDTO(HttpStatus.BAD_REQUEST.value(), erros);
 		return new ResponseEntity<>(fieldExceptionResponseDTO, status);
-	}
-
-	@ExceptionHandler(ValidationException.class)
-	protected ResponseEntity<Object> handleException(ValidationException ex) {
-		log.error("ValidationExceptionHandler", ex);
-		ExceptionResponseDTO exceptionResponse = new ExceptionResponseDTO(
-				ValidationException.class.getAnnotation(ResponseStatus.class).code().value(), ex.getErrors());
-		return new ResponseEntity<>(exceptionResponse, ValidationException.class.getAnnotation(ResponseStatus.class).code());
 	}
 
 	@ExceptionHandler(GenericException.class)

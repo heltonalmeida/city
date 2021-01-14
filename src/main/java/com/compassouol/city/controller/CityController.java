@@ -28,6 +28,8 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping(path = "/city")
 public class CityController {
 	
+	private static final String SORT_BY_FIELD_ID = "id";
+	
 	@Autowired
 	private CityService cityService;
 	
@@ -38,13 +40,14 @@ public class CityController {
             response = Page.class)
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
-            @ApiResponse(code = 400, message = "Parâmetro page inválido | Parâmetro size inválido")
+            @ApiResponse(code = 400, message = "Parâmetro page inválido | Parâmetro size inválido"),
+            @ApiResponse(code = 500, message = "Erro interno no servidor"),
     })
 	@GetMapping
 	public ResponseEntity<Page<CityResponseDTO>> findBy(
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String state,
-			@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) final Pageable page) {
+			@PageableDefault(page = 0, size = 10, sort = SORT_BY_FIELD_ID, direction = Sort.Direction.ASC) final Pageable page) {
 		return ResponseEntity.ok(cityService.findBy(name, state, page));
 	}
 	
