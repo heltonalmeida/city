@@ -44,8 +44,8 @@ public class CityService {
 		}
 	}
 
-	private String treatFilter(String name) {
-		return StringUtils.isNotBlank(name) ? name.toLowerCase() : null;
+	private String treatFilter(String value) {
+		return StringUtils.isNotBlank(value) ? value.toLowerCase() : null;
 	}
 
 }

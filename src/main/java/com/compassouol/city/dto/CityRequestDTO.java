@@ -14,7 +14,7 @@ import lombok.Setter;
 public class CityRequestDTO {
 	
     @NotBlank
-    @Size(max = 255, min = 1)
+    @Size(max = 100, min = 1)
 	private String name;
     
     @NotBlank
