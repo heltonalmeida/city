@@ -32,15 +32,10 @@ public class CityController {
 	@Autowired
 	private CityService cityService;
 	
-	@ApiOperation(value = "Recupera as informações da(s) cidades(s).",
-            consumes = "application/json",
-            produces = "application/json",
-            httpMethod = "GET",
-            response = Page.class)
+	@ApiOperation(value = "Recupera as informações da(s) cidades(s).")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
-            @ApiResponse(code = 500, message = "Erro interno no servidor"),
-    })
+            @ApiResponse(code = 500, message = "Erro interno no servidor")})
 	@GetMapping
 	public Page<CityResponseDTO> findBy(
 			@RequestParam(required = false) String name,
@@ -49,31 +44,21 @@ public class CityController {
 		return cityService.findBy(name, state, page);
 	}
 	
-	@ApiOperation(value = "Realiza a consulta de uma cidade.",
-            consumes = "application/json",
-            produces = "application/json",
-            httpMethod = "GET",
-            response = CityResponseDTO.class)
+	@ApiOperation(value = "Realiza a consulta de uma cidade.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 404, message = "Cidade não encontrada."),
-            @ApiResponse(code = 500, message = "Erro interno no servidor"),
-    })
+            @ApiResponse(code = 500, message = "Erro interno no servidor")})
 	@GetMapping("/{id}")
 	public CityResponseDTO findBy(@PathVariable Long id) {
 		return cityService.findBy(id);
 	}
 	
-	@ApiOperation(value = "Realiza a inserção de uma cidade.",
-            consumes = "application/json",
-            produces = "application/json",
-            httpMethod = "POST",
-            response = CityResponseDTO.class)
+	@ApiOperation(value = "Realiza a inserção de uma cidade.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 400, message = "Dados obrigatórios não informados | Tamanho do campo inválido"),
-            @ApiResponse(code = 500, message = "Erro interno no servidor"),
-    })
+            @ApiResponse(code = 500, message = "Erro interno no servidor")})
 	@PostMapping
 	public CityResponseDTO save(@Valid @RequestBody CityRequestDTO cityRequestDTO) {
 		return cityService.save(cityRequestDTO);

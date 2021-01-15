@@ -22,19 +22,19 @@ public class CityService {
 	@Autowired
 	private CityRepository cityRepository;
 
-	public CityResponseDTO save(CityRequestDTO cityRequestDTO) {
-		validateExistingCityForState(cityRequestDTO);
-		City city = CityConverter.convert(cityRequestDTO);
-		return CityConverter.convert(cityRepository.save(city));
+	public Page<CityResponseDTO> findBy(String name, String state, Pageable page) {
+		return cityRepository.findBy(treatFilter(name), treatFilter(state), page);
 	}
 
 	public CityResponseDTO findBy(Long id) {
 		City city = cityRepository.findById(id).orElseThrow(() -> new CityNotFoundException());
 		return CityConverter.convert(city);
 	}
-
-	public Page<CityResponseDTO> findBy(String name, String state, Pageable page) {
-		return cityRepository.findBy(treatFilter(name), treatFilter(state), page);
+	
+	public CityResponseDTO save(CityRequestDTO cityRequestDTO) {
+		validateExistingCityForState(cityRequestDTO);
+		City city = CityConverter.convert(cityRequestDTO);
+		return CityConverter.convert(cityRepository.save(city));
 	}
 	
 	private void validateExistingCityForState(CityRequestDTO cityRequestDTO) {
