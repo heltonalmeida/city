@@ -39,7 +39,6 @@ public class CityController {
             response = Page.class)
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
-            @ApiResponse(code = 400, message = "Parâmetro page inválido | Parâmetro size inválido"),
             @ApiResponse(code = 500, message = "Erro interno no servidor"),
     })
 	@GetMapping
