@@ -42,7 +42,7 @@ docker run -it --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8
 
 Quanto a configuração das credencias para acesso ao banco, no arquivo application.yml já contém as configurações necessárias para a aplicação se conectar ao MySQL.
 
-Na primeira vez que estiver executando o projeto, através do Flaway sera executado no banco os scripts contidos no caminho src\main\resources\db para criação de tabela e massa de dados. Para que isso aconteça é necessário já ter criado o database tb_city.
+Na primeira vez que estiver executando o projeto, através do Flayway será executado automaticamente no banco os scripts contidos no caminho src\main\resources\db para criação de tabela e massa de dados. Para que isso aconteça é necessário já ter criado o database tb_city.
 
 - Configurando Lombok
 
